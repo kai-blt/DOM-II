@@ -22,6 +22,8 @@ let h2s = document.querySelectorAll('h2');
 
 let imgs = document.querySelectorAll('img');
 
+let scrollCount = 0;
+
 
 //Change link color to gold on mouseover
 navLinks.forEach(link => {
@@ -65,10 +67,13 @@ window.addEventListener('load', (e) => {
 
 //on website load, change the logo to Vacation Dreams
 document.addEventListener('scroll', (e) => { 
-    let color1 = Math.ceil(Math.random() * 255);
-    let color2 = Math.ceil(Math.random() * 255);
-    let color3 = Math.ceil(Math.random() * 255);
-    document.body.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+    scrollCount++;
+    if (scrollCount % 20 === 0) { //only do this if scrollcount is divisible by 20
+        let color1 = Math.ceil(Math.random() * 255);
+        let color2 = Math.ceil(Math.random() * 255);
+        let color3 = Math.ceil(Math.random() * 255);
+        document.body.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+    }    
 });
 
 

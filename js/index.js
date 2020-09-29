@@ -1,15 +1,3 @@
-// Utilize these event listener options:
-// * `mouseover`
-// * `keydown`
-// * `wheel`
-// * `load`
-// * `focus`
-// * `resize`
-// * `scroll`
-// * `select`
-// * `dblclick`
-// * `drag / drop`
-
 
 //Get all nav links
 let navLinks = document.querySelectorAll('.nav-link');
@@ -51,6 +39,14 @@ buttons.forEach(button => {
     });
 })
 
+
+//on click images make them grayscale
+imgs.forEach(img => {
+    img.addEventListener('click', (e) => {
+        img.style.filter = 'grayscale(100%)'
+    })
+});
+
 //If window is resized, alert user that they resized window
 window.addEventListener('resize', (e) => {
     alert('You resized me!');
@@ -81,5 +77,27 @@ document.addEventListener('scroll', (e) => {
 window.addEventListener('keydown', (e) => {
     imgs.forEach(img => {
         img.style.borderRadius = '100%';        
+    });
+});
+
+
+//on keyup, revert images back, but with a small border radius
+window.addEventListener('keyup', (e) => {
+    imgs.forEach(img => {
+        img.style.borderRadius = '20px';        
+    });
+});
+
+//on copy, send alert message with what was copied 
+window.addEventListener('copy', e => {
+    const selection = document.getSelection();
+    alert(`Stop plagiarizing! You just copied: \n ${selection}`);
+});
+
+
+//Prevent page refresh on nav links
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
     });
 });

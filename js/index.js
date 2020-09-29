@@ -89,10 +89,24 @@ window.addEventListener('keyup', (e) => {
 });
 
 //on copy, send alert message with what was copied 
-window.addEventListener('copy', e => {
+window.addEventListener('copy', (e) => {
     const selection = document.getSelection();
     alert(`Stop plagiarizing! You just copied: \n ${selection}`);
 });
+
+
+//Add similar events on page and stop propagation
+window.addEventListener('click', (e) => {
+    console.log(`You clicked on the ${e.target}`);
+});
+
+//Stop propagation of click event on button!
+buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        console.log(`You clicked on the ${e.target}`);
+        e.stopPropagation();
+    });
+})
 
 
 //Prevent page refresh on nav links

@@ -20,6 +20,7 @@ let buttons = document.querySelectorAll('.btn');
 //Get all h2s
 let h2s = document.querySelectorAll('h2'); 
 
+let p = document.querySelectorAll('p');
 
 
 
@@ -61,4 +62,13 @@ window.addEventListener('resize', (e) => {
 window.addEventListener('load', (e) => {    
     let logo = document.querySelector('.logo-heading');
     logo.textContent = 'Vacation Dreams'
+});
+
+
+//on website load, change the logo to Vacation Dreams
+document.addEventListener('scroll', (e) => { 
+    let color1 = Math.ceil(Math.random() * 255);
+    let color2 = Math.ceil(Math.random() * 255);
+    let color3 = Math.ceil(Math.random() * 255);
+    document.body.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
 });

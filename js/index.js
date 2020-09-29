@@ -57,6 +57,7 @@ window.addEventListener('resize', (e) => {
 //on website load, change the logo to Vacation Dreams
 window.addEventListener('load', (e) => {    
     let logo = document.querySelector('.logo-heading');
+    gsap.to("h2", {duration: 2, x: 50, ease: "bounce"}); //Added bounce to h2s on load
     logo.textContent = 'Vacation Dreams'
 });
 
@@ -97,6 +98,7 @@ window.addEventListener('copy', (e) => {
 
 //Add similar events on page and stop propagation
 window.addEventListener('click', (e) => {
+    gsap.to('img', {duration: 2, rotation: 360}); //added image rotate on window click
     console.log(`You clicked on the ${e.target}`);
 });
 
@@ -115,3 +117,4 @@ navLinks.forEach(link => {
         e.preventDefault();
     });
 });
+

@@ -20,9 +20,7 @@ let buttons = document.querySelectorAll('.btn');
 //Get all h2s
 let h2s = document.querySelectorAll('h2'); 
 
-let p = document.querySelectorAll('p');
-
-
+let imgs = document.querySelectorAll('img');
 
 
 //Change link color to gold on mouseover
@@ -71,4 +69,12 @@ document.addEventListener('scroll', (e) => {
     let color2 = Math.ceil(Math.random() * 255);
     let color3 = Math.ceil(Math.random() * 255);
     document.body.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+});
+
+
+//on keydown, change images to circles
+window.addEventListener('keydown', (e) => {
+    imgs.forEach(img => {
+        img.style.borderRadius = '100%';        
+    });
 });

@@ -9,22 +9,18 @@ console.log(blockArray);
 //Add on click to each block which moves it to the top of the stack
 
 
+function blockMove(block) {
+    gsap.to(block, {duration: 1, x: '+=10'});   
+    console.log('moving')
+}
 
 Array.from(blockArray).forEach(block => {
     block.addEventListener('mousedown', (e) => {
-        console.log(e.target.className);
-        setInterval(function(){
-            gsap.to(block, {duration: 1, y: '-=50'});   
-        });        
-    });
-    
+        setInterval(blockMove(e.target))     
+    });    
     block.addEventListener('mouseup', (e) => {
-        console.log('UP');
-        setInterval(function(){
-            gsap.to(block, {duration: 1, y: '-=50'});
-        })    
+        clearInterval();    
     })    
-    
     block.addEventListener('click', (e) => {
         blockContainer.prepend(block);
      });
